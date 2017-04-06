@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Caterpillar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D2F4EC24F660C17D4426BB116365F88</key>
+		<key>025592B20BD58BD79BFB87FE6DEAA188</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>27BC989D9536963C0394A6412EB5D611</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90FCE6B8AD144A2D857978AEB6F5208E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

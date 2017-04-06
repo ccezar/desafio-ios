@@ -18,6 +18,7 @@ public class Repository: MTLModel, MTLJSONSerializing {
     
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [
+            "name": "name",
             "shortDescription": "description",
             "stars": "stargazers_count",
             "forks": "forks_count",

@@ -11,7 +11,7 @@ import Mantle
 
 public class Owner: MTLModel, MTLJSONSerializing {
     var login: String?
-    var photoURL: String?
+    var photoURL: URL?
     
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [
@@ -20,5 +20,7 @@ public class Owner: MTLModel, MTLJSONSerializing {
         ]
     }
     
-    
+    public static func photoURLjsonTransformer() -> ValueTransformer! {
+        return ValueTransformer.init(forName: NSValueTransformerName(rawValue: MTLURLValueTransformerName))
+    }
 }

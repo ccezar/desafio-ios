@@ -14,18 +14,23 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Caterpillar (1.0.0):
+    - Caterpillar/Core (= 1.0.0)
+  - Caterpillar/Core (1.0.0)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Caterpillar
   - Mantle
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Caterpillar: a5ff98cb128becadc8edd0cba387198165585628
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
 
-PODFILE CHECKSUM: b82dc8cc5d5dc4e20a570ac529b9d7d86c60b4d8
+PODFILE CHECKSUM: 46ae553c2177890bc64ef5f6043f676ca9f04360
 
 COCOAPODS: 1.2.0

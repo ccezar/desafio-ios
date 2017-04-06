@@ -1,0 +1,6 @@
+framework module Caterpillar {
+  umbrella header "Caterpillar-umbrella.h"
+
+  export *
+  module * { export * }
+}

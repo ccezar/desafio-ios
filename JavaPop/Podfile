@@ -8,6 +8,7 @@ target 'JavaPop' do
   # Pods for JavaPop
   pod 'AFNetworking'
   pod 'Mantle'
+  pod 'Caterpillar'
   
   target 'JavaPopTests' do
     inherit! :search_paths
