@@ -208,15 +208,15 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nfH-mU-i5Z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nfH-mU-i5Z">
                                 <rect key="frame" x="0.0" y="86" width="375" height="581"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="128" id="zm7-OX-Cy3" customClass="PullRequestCell" customModule="JavaPop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="128"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="130" id="zm7-OX-Cy3" customClass="PullRequestCell" customModule="JavaPop" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zm7-OX-Cy3" id="Alu-nK-xhx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Repositório" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5a-Pn-OY6">
@@ -264,12 +264,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ofp-8D-bH3" secondAttribute="bottom" constant="15" id="1rA-qm-kL7"/>
                                                 <constraint firstItem="ofp-8D-bH3" firstAttribute="top" secondItem="wdU-jN-GGQ" secondAttribute="bottom" id="6LI-MY-HPL"/>
                                                 <constraint firstItem="wdU-jN-GGQ" firstAttribute="trailing" secondItem="Alu-nK-xhx" secondAttribute="trailingMargin" id="6pb-q5-6oC"/>
                                                 <constraint firstItem="ofp-8D-bH3" firstAttribute="leading" secondItem="Alu-nK-xhx" secondAttribute="leadingMargin" constant="19" id="Bs9-FO-mMl"/>
                                                 <constraint firstItem="p5a-Pn-OY6" firstAttribute="leading" secondItem="Alu-nK-xhx" secondAttribute="leadingMargin" constant="19" id="BuD-FA-8Rc"/>
                                                 <constraint firstItem="iP3-rW-Ftj" firstAttribute="trailing" secondItem="Alu-nK-xhx" secondAttribute="trailingMargin" id="CO8-21-Zgp"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ofp-8D-bH3" secondAttribute="bottom" constant="13" id="WQo-WQ-gJF"/>
                                                 <constraint firstItem="wdU-jN-GGQ" firstAttribute="leading" secondItem="Alu-nK-xhx" secondAttribute="leadingMargin" constant="19" id="ZaD-Cm-QDy"/>
                                                 <constraint firstItem="wIl-Ju-iH1" firstAttribute="top" secondItem="ofp-8D-bH3" secondAttribute="top" id="aw2-gr-eta"/>
                                                 <constraint firstItem="p5a-Pn-OY6" firstAttribute="top" secondItem="Alu-nK-xhx" secondAttribute="topMargin" constant="12" id="cF1-QA-g1u"/>

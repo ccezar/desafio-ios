@@ -20,7 +20,7 @@ class PullRequestCell: UITableViewCell {
             titleLabel.text = pullRequest?.title ?? ""
             bodyLabel.text = pullRequest?.body ?? ""
             loginLabel.text = pullRequest?.user?.login ?? ""
-            fullNameLabel.text = "TODO"
+            fullNameLabel.text = ""
             userImageView.downloadedFrom(url: pullRequest?.user?.photoURL)
         }
     }

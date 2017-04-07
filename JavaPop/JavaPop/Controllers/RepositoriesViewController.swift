@@ -16,7 +16,7 @@ class RepositoriesViewController: UIViewController {
     // MARK: Properties
     fileprivate var collection: RepositoryCollection!
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         menuButton.imageView?.image = menuButton.imageView?.image!.withRenderingMode(.alwaysTemplate)
         menuButton.imageView?.tintColor = .white
     }
