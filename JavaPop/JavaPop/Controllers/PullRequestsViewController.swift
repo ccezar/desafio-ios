@@ -50,6 +50,13 @@ extension PullRequestsViewController: UITableViewDataSource, UITableViewDelegate
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PullRequestCell
+        if let url = cell.pullRequest?.url {
+            UIApplication.shared.openURL(url)
+        }
+    }
 }
 
 extension PullRequestsViewController: PullRequestCollectionProtocol {
