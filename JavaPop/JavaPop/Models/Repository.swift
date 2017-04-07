@@ -9,6 +9,20 @@
 import UIKit
 import Mantle
 
+public class RepositoryCollection: MTLModel, MTLJSONSerializing {
+    var items: [Repository]?
+    
+    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return [
+            "items": "items"
+        ]
+    }
+    
+    static func itemsJSONTransformer() -> ValueTransformer! {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: Repository.self)
+    }
+}
+
 public class Repository: MTLModel, MTLJSONSerializing {
     var name: String?
     var shortDescription: String?

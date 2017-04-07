@@ -10,6 +10,21 @@ import UIKit
 import Mantle
 import Caterpillar
 
+
+public class PullRequestCollection: MTLModel, MTLJSONSerializing {
+    var items: [PullRequest]?
+    
+    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+        return [
+            "items": "items"
+        ]
+    }
+    
+    static func itemsJSONTransformer() -> ValueTransformer! {
+        return MTLJSONAdapter.arrayTransformer(withModelClass: PullRequest.self)
+    }
+}
+
 public class PullRequest: MTLModel, MTLJSONSerializing {
     var owner: Owner?
     var title: String?

@@ -9,18 +9,18 @@
 import UIKit
 import AFNetworking
 
-class BaseClient: NSObject {
+public class BaseClient: NSObject {
     private let manager = AFHTTPSessionManager()
-    private var endpoint: Endpoint
+    private var url: String
     private var cached = false
     
-    init(endpoint: Endpoint) {
+    init(url: String) {
         manager.responseSerializer = AFJSONResponseSerializer()
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
         manager.requestSerializer.timeoutInterval = 60
         
-        self.endpoint = endpoint
+        self.url = url
         
         super.init()
     }
@@ -46,7 +46,7 @@ class BaseClient: NSObject {
             manager.requestSerializer.setValuesForKeys(headerParams)
         }
         
-        manager.get(endpoint.rawValue,
+        manager.get(url,
                     parameters: parameters,
                     progress: nil,
                     success: {(task: URLSessionDataTask, responseObject: Any) -> Void in
@@ -58,17 +58,5 @@ class BaseClient: NSObject {
                             failure(task, error)
                         }
                 })
-
     }
-    
-    
-//    func getParameters(filters: [String: AnyObject]) -> [String: AnyObject] {
-//        var parameters = [:]
-//        
-//        for (key, value) in filters {
-//            parameters[key] = value
-//        }
-//        
-//        return parameters
-//    }
 }
