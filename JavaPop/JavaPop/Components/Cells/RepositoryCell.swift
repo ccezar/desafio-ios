@@ -23,8 +23,7 @@ class RepositoryCell: UITableViewCell {
             forksLabel.text = "\(repository?.forks ?? 0)"
             starsLabel.text = "\(repository?.stars ?? 0)"
             loginLabel.text = repository?.owner?.login ?? ""
-            
-            // userImageView
+            userImageView.downloadedFrom(url: repository?.owner?.photoURL)
         }
     }
     

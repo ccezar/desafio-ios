@@ -7,26 +7,22 @@
 //
 
 import UIKit
-import Mantle
 
 class RepositoriesViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
-    fileprivate var repositories: [Repository] = []
-    fileprivate var page = 1
+    fileprivate var collection: RepositoryCollection!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        collection = RepositoryCollection(delegate: self)
+        collection.loadData()
     }
 
     // MARK: Methods
-    func loadData() {
-        let client = RepositoryClient(delegate: self, page: page)
-        client.getRepositories()
-    }
+    
     
     func showMessage(_ message: String) {
         let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -39,7 +35,7 @@ class RepositoriesViewController: UIViewController {
 
 extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
+        return collection.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -48,18 +44,24 @@ extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! RepositoryCell
-        cell.repository = repositories[indexPath.item]
+        cell.repository = collection.items?[indexPath.item] ?? nil
         
         return cell
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let actualPosition = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height - 1000
+        
+        if (actualPosition >= contentHeight) {
+            collection.loadNextPage()
+        }
+    }
 }
 
-extension RepositoriesViewController: RepositoryClientProtocol {
-    func getRepositoriesSuccess(data: [Repository]?) {
-        if let data = data {
-            repositories = data
-            tableView.reloadData()
-        }
+extension RepositoriesViewController: RepositoryCollectionProtocol {
+    func getRepositoriesSuccess() {
+        tableView.reloadData()
     }
     
     func getRepositoriesError(message: String) {
