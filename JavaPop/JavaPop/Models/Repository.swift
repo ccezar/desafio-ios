@@ -77,6 +77,7 @@ extension RepositoryCollection: RepositoryClientProtocol {
 
 public class Repository: MTLModel, MTLJSONSerializing {
     var name: String?
+    var fullName: String?
     var shortDescription: String?
     var stars: Int = 0
     var forks: Int = 0
@@ -85,6 +86,7 @@ public class Repository: MTLModel, MTLJSONSerializing {
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [
             "name": "name",
+            "fullName": "full_name",
             "shortDescription": "description",
             "stars": "stargazers_count",
             "forks": "forks_count",

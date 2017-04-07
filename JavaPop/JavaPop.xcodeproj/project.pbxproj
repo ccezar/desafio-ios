@@ -16,6 +16,9 @@
 		FC1E23861E96C03300EE61A4 /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E23851E96C03300EE61A4 /* BaseClient.swift */; };
 		FC1E23891E96C22400EE61A4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E23881E96C22400EE61A4 /* Endpoint.swift */; };
 		FC1E238D1E97A45400EE61A4 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E238C1E97A45400EE61A4 /* UIImageView.swift */; };
+		FC1E23901E97FB5700EE61A4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E238F1E97FB5700EE61A4 /* UIColor.swift */; };
+		FC1E23921E9805D400EE61A4 /* PullRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E23911E9805D400EE61A4 /* PullRequestCell.swift */; };
+		FC1E23941E980D9200EE61A4 /* PullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E23931E980D9200EE61A4 /* PullRequestsViewController.swift */; };
 		FCC8E0771E95CF8700C302CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0761E95CF8700C302CF /* AppDelegate.swift */; };
 		FCC8E07E1E95CF8700C302CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC8E07D1E95CF8700C302CF /* Assets.xcassets */; };
 		FCC8E08C1E95CF8700C302CF /* JavaPopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E08B1E95CF8700C302CF /* JavaPopTests.swift */; };
@@ -61,6 +64,9 @@
 		FC1E23851E96C03300EE61A4 /* BaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClient.swift; sourceTree = "<group>"; };
 		FC1E23881E96C22400EE61A4 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FC1E238C1E97A45400EE61A4 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		FC1E238F1E97FB5700EE61A4 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		FC1E23911E9805D400EE61A4 /* PullRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestCell.swift; sourceTree = "<group>"; };
+		FC1E23931E980D9200EE61A4 /* PullRequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestsViewController.swift; sourceTree = "<group>"; };
 		FCC8E0731E95CF8700C302CF /* JavaPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JavaPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC8E0761E95CF8700C302CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCC8E07D1E95CF8700C302CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				FC1E237A1E96BE8300EE61A4 /* RepositoriesViewController.swift */,
+				FC1E23931E980D9200EE61A4 /* PullRequestsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				FC1E238C1E97A45400EE61A4 /* UIImageView.swift */,
+				FC1E238F1E97FB5700EE61A4 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				FCC8E0B51E971B3B00C302CF /* RepositoryCell.swift */,
+				FC1E23911E9805D400EE61A4 /* PullRequestCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -541,14 +550,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCC8E0B21E970E5400C302CF /* PullRequestClient.swift in Sources */,
+				FC1E23901E97FB5700EE61A4 /* UIColor.swift in Sources */,
 				FCC8E0B01E96F98700C302CF /* RepositoryClient.swift in Sources */,
 				FC1E237B1E96BE8300EE61A4 /* RepositoriesViewController.swift in Sources */,
 				FC1E23861E96C03300EE61A4 /* BaseClient.swift in Sources */,
 				FCC8E0AC1E95D74B00C302CF /* Owner.swift in Sources */,
 				FCC8E0B61E971B3B00C302CF /* RepositoryCell.swift in Sources */,
+				FC1E23921E9805D400EE61A4 /* PullRequestCell.swift in Sources */,
 				FCC8E0771E95CF8700C302CF /* AppDelegate.swift in Sources */,
 				FC1E238D1E97A45400EE61A4 /* UIImageView.swift in Sources */,
 				FC1E23891E96C22400EE61A4 /* Endpoint.swift in Sources */,
+				FC1E23941E980D9200EE61A4 /* PullRequestsViewController.swift in Sources */,
 				FCC8E0AE1E95DEAF00C302CF /* PullRequest.swift in Sources */,
 				FCC8E0AA1E95D63B00C302CF /* Repository.swift in Sources */,
 			);

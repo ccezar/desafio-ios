@@ -10,9 +10,35 @@ import UIKit
 import Mantle
 import Caterpillar
 
+public protocol PullRequestCollectionProtocol {
+    func getPullRequestsSuccess()
+    func getPullRequestsError(message: String)
+}
 
 public class PullRequestCollection: MTLModel, MTLJSONSerializing {
+    var owner: String?
+    var repository: String?
     var items: [PullRequest]?
+    var delegate: PullRequestCollectionProtocol?
+    
+    public override init!() {
+        super.init()
+    }
+    
+    init(delegate: PullRequestCollectionProtocol, owner: String, repository: String) {
+        self.delegate = delegate
+        self.owner = owner
+        self.repository = repository
+        super.init()
+    }
+    
+    required public init!(coder: NSCoder!) {
+        super.init(coder: coder)
+    }
+    
+    required public init(dictionary dictionaryValue: [AnyHashable : Any]!) throws {
+        try super.init(dictionary: dictionaryValue)
+    }
     
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [
@@ -23,26 +49,60 @@ public class PullRequestCollection: MTLModel, MTLJSONSerializing {
     static func itemsJSONTransformer() -> ValueTransformer! {
         return MTLJSONAdapter.arrayTransformer(withModelClass: PullRequest.self)
     }
+    
+    func loadData() {
+        if let owner = owner, let repository = repository {
+            let client = PullRequestClient(delegate: self, owner: owner, repository: repository)
+            client.getPullRequests()
+        } else {
+            // TODO: Throw error message
+        }
+    }
+    
+    func getSummary() -> String {
+        let openedCount = items?.filter{ $0.state == "open" }.count ?? 0
+        let closedCount = items?.filter{ $0.state == "closed" }.count ?? 0
+        return "\(openedCount) opened / \(closedCount) closed"
+    }
+}
+
+extension PullRequestCollection: PullRequestClientProtocol {
+    public func getPullRequestsSuccess(data: [PullRequest]?) {
+        if let data = data {
+            if items == nil {
+                items = [PullRequest]()
+            }
+            
+            items?.append(contentsOf: data)
+            delegate?.getPullRequestsSuccess()
+        }
+    }
+    
+    public func getPullRequestsError(message: String) {
+        delegate?.getPullRequestsError(message: message)
+    }
 }
 
 public class PullRequest: MTLModel, MTLJSONSerializing {
-    var owner: Owner?
+    var user: Owner?
     var title: String?
     var date: Date?
     var body: String?
     var url: URL?
+    var state: String?
     
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [
-            "owner": "owner",
+            "user": "user",
             "title": "title",
             "date": "created_at",
             "body": "body",
-            "url": "url"
+            "url": "url",
+            "state": "state"
         ]
     }
     
-    static func ownerJSONTransformer() -> ValueTransformer! {
+    static func userJSONTransformer() -> ValueTransformer! {
         return MTLJSONAdapter.dictionaryTransformer(withModelClass: Owner.self)
     }
     

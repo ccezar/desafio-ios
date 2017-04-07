@@ -11,19 +11,40 @@ import UIKit
 class RepositoriesViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuButton: UIButton!
     
     // MARK: Properties
     fileprivate var collection: RepositoryCollection!
     
+    override func viewWillAppear(_ animated: Bool) {
+        menuButton.imageView?.image = menuButton.imageView?.image!.withRenderingMode(.alwaysTemplate)
+        menuButton.imageView?.tintColor = .white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collection = RepositoryCollection(delegate: self)
         collection.loadData()
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pullRequestsSegue" {
+            if let vc = segue.destination as? PullRequestsViewController,
+                let cell = sender as? RepositoryCell,
+                let owner = cell.repository?.owner?.login,
+                let repository = cell.repository?.name  {
+                
+                vc.owner = owner
+                vc.repository = repository
+            } else {
+                // TODO: Cancel navigation and show exception message
+            }
+        }
+    }
 
     // MARK: Methods
-    
-    
     func showMessage(_ message: String) {
         let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in }
