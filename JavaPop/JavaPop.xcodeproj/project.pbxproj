@@ -21,7 +21,7 @@
 		FC1E23941E980D9200EE61A4 /* PullRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E23931E980D9200EE61A4 /* PullRequestsViewController.swift */; };
 		FCC8E0771E95CF8700C302CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0761E95CF8700C302CF /* AppDelegate.swift */; };
 		FCC8E07E1E95CF8700C302CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC8E07D1E95CF8700C302CF /* Assets.xcassets */; };
-		FCC8E08C1E95CF8700C302CF /* JavaPopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E08B1E95CF8700C302CF /* JavaPopTests.swift */; };
+		FCC8E08C1E95CF8700C302CF /* OwnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E08B1E95CF8700C302CF /* OwnerTests.swift */; };
 		FCC8E0971E95CF8700C302CF /* JavaPopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0961E95CF8700C302CF /* JavaPopUITests.swift */; };
 		FCC8E0AA1E95D63B00C302CF /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0A91E95D63B00C302CF /* Repository.swift */; };
 		FCC8E0AC1E95D74B00C302CF /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0AB1E95D74B00C302CF /* Owner.swift */; };
@@ -29,6 +29,7 @@
 		FCC8E0B01E96F98700C302CF /* RepositoryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0AF1E96F98700C302CF /* RepositoryClient.swift */; };
 		FCC8E0B21E970E5400C302CF /* PullRequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0B11E970E5400C302CF /* PullRequestClient.swift */; };
 		FCC8E0B61E971B3B00C302CF /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0B51E971B3B00C302CF /* RepositoryCell.swift */; };
+		FCC8E0B91E987CB100C302CF /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC8E0B81E987CB100C302CF /* RepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,7 @@
 		FCC8E07D1E95CF8700C302CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCC8E0821E95CF8700C302CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCC8E0871E95CF8700C302CF /* JavaPopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JavaPopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCC8E08B1E95CF8700C302CF /* JavaPopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaPopTests.swift; sourceTree = "<group>"; };
+		FCC8E08B1E95CF8700C302CF /* OwnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OwnerTests.swift; path = ../OwnerTests.swift; sourceTree = "<group>"; };
 		FCC8E08D1E95CF8700C302CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCC8E0921E95CF8700C302CF /* JavaPopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JavaPopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC8E0961E95CF8700C302CF /* JavaPopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaPopUITests.swift; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		FCC8E0AF1E96F98700C302CF /* RepositoryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryClient.swift; sourceTree = "<group>"; };
 		FCC8E0B11E970E5400C302CF /* PullRequestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestClient.swift; sourceTree = "<group>"; };
 		FCC8E0B51E971B3B00C302CF /* RepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		FCC8E0B81E987CB100C302CF /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +227,7 @@
 		FCC8E08A1E95CF8700C302CF /* JavaPopTests */ = {
 			isa = PBXGroup;
 			children = (
-				FCC8E08B1E95CF8700C302CF /* JavaPopTests.swift */,
+				FCC8E0B71E987A0200C302CF /* Models */,
 				FCC8E08D1E95CF8700C302CF /* Info.plist */,
 			);
 			path = JavaPopTests;
@@ -265,6 +267,15 @@
 				FC1E23911E9805D400EE61A4 /* PullRequestCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FCC8E0B71E987A0200C302CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCC8E08B1E95CF8700C302CF /* OwnerTests.swift */,
+				FCC8E0B81E987CB100C302CF /* RepositoryTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,7 +581,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCC8E08C1E95CF8700C302CF /* JavaPopTests.swift in Sources */,
+				FCC8E08C1E95CF8700C302CF /* OwnerTests.swift in Sources */,
+				FCC8E0B91E987CB100C302CF /* RepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

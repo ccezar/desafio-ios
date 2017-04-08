@@ -64,11 +64,13 @@ public class PullRequestCollection: MTLModel, MTLJSONSerializing {
         let closedCount = items?.filter{ $0.state == "closed" }.count ?? 0
         
         let openedString = "\(openedCount) opened"
-        let openedAttrString = NSMutableAttributedString(string: openedString, attributes: [NSForegroundColorAttributeName: UIColor(netHex: 0xDD9225)])
+        let openedAttrString = NSMutableAttributedString(string: openedString,
+                                                         attributes: [NSForegroundColorAttributeName: UIColor(netHex: 0xDD9225)])
         
         let closedString = " / \(closedCount) closed"
-        let closedAttrString = NSAttributedString(string: closedString, attributes: [NSForegroundColorAttributeName: UIColor.black,
-                                                                                     NSFontAttributeName: UIFont.boldSystemFont(ofSize: 11)])
+        let closedAttrString = NSAttributedString(string: closedString,
+                                                  attributes: [NSForegroundColorAttributeName: UIColor.black,
+                                                               NSFontAttributeName: UIFont.boldSystemFont(ofSize: 11)])
         
         openedAttrString.append(closedAttrString)
         
