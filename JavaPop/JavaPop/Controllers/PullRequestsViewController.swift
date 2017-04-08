@@ -21,11 +21,26 @@ class PullRequestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationBar()
         collection = PullRequestCollection(delegate: self, owner: owner, repository: repository)
         collection.loadData()
     }
     
     // MARK: Methods
+    func configureNavigationBar()  {
+        title = repository
+        let backButton = UIBarButtonItem(image: UIImage(named: "Icon-Back"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(PullRequestsViewController.back(sender:)))
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+
+    
     func showMessage(_ message: String) {
         let actionSheetController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel) { action -> Void in }
@@ -52,8 +67,7 @@ extension PullRequestsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PullRequestCell
-        if let url = cell.pullRequest?.url {
+        if let url = collection.items?[indexPath.item].url {
             UIApplication.shared.openURL(url)
         }
     }
@@ -61,8 +75,14 @@ extension PullRequestsViewController: UITableViewDataSource, UITableViewDelegate
 
 extension PullRequestsViewController: PullRequestCollectionProtocol {
     func getPullRequestsSuccess() {
-        summaryLabel.text = collection.getSummary()
-        tableView.reloadData()
+        if collection.items?.count ?? 0 > 0 {
+            summaryLabel.attributedText = collection.getSummary()
+            tableView.isHidden = false
+            tableView.reloadData()
+        } else {
+            summaryLabel.text = "Nenhum pull request para o repositório."
+            tableView.isHidden = true
+        }
     }
     
     func getPullRequestsError(message: String) {

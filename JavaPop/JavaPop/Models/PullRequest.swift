@@ -59,10 +59,20 @@ public class PullRequestCollection: MTLModel, MTLJSONSerializing {
         }
     }
     
-    func getSummary() -> String {
+    func getSummary() -> NSAttributedString {
         let openedCount = items?.filter{ $0.state == "open" }.count ?? 0
         let closedCount = items?.filter{ $0.state == "closed" }.count ?? 0
-        return "\(openedCount) opened / \(closedCount) closed"
+        
+        let openedString = "\(openedCount) opened"
+        let openedAttrString = NSMutableAttributedString(string: openedString, attributes: [NSForegroundColorAttributeName: UIColor(netHex: 0xDD9225)])
+        
+        let closedString = " / \(closedCount) closed"
+        let closedAttrString = NSAttributedString(string: closedString, attributes: [NSForegroundColorAttributeName: UIColor.black,
+                                                                                     NSFontAttributeName: UIFont.boldSystemFont(ofSize: 11)])
+        
+        openedAttrString.append(closedAttrString)
+        
+        return openedAttrString
     }
 }
 
@@ -74,8 +84,9 @@ extension PullRequestCollection: PullRequestClientProtocol {
             }
             
             items?.append(contentsOf: data)
-            delegate?.getPullRequestsSuccess()
         }
+        
+        delegate?.getPullRequestsSuccess()
     }
     
     public func getPullRequestsError(message: String) {
@@ -97,7 +108,7 @@ public class PullRequest: MTLModel, MTLJSONSerializing {
             "title": "title",
             "date": "created_at",
             "body": "body",
-            "url": "url",
+            "url": "html_url",
             "state": "state"
         ]
     }

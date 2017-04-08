@@ -12,6 +12,7 @@ class RepositoriesViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var topTableViewConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     fileprivate var collection: RepositoryCollection!
@@ -19,6 +20,11 @@ class RepositoriesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         menuButton.imageView?.image = menuButton.imageView?.image!.withRenderingMode(.alwaysTemplate)
         menuButton.imageView?.tintColor = .white
+    }
+    
+    override func viewWillLayoutSubviews() {
+        topTableViewConstraint.constant = view.bounds.size.height > view.bounds.size.width ? -64 : -34
+        view.layoutIfNeeded()
     }
     
     override func viewDidLoad() {
