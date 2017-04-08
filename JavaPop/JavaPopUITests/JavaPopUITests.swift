@@ -28,9 +28,37 @@ class JavaPopUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSelectRxJavaAndGoBackToList() {
+        let app = XCUIApplication()
+        app.tables.staticTexts["RxJava"].tap()
+        app.navigationBars["RxJava"].buttons["Icon Back"].tap()
+    }
+    
+    func testSelectRetrofitAndOpenFirstPullRequestOnBrowser() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["retrofit"].tap()
+        tablesQuery.staticTexts["Allowing skipping of query params if the conveters converted to a null"].tap()
+    }
+    
+    func testEndlessScroll() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
+        tablesQuery.element.swipeUp()
     }
     
 }
